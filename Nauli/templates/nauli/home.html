@@ -1,0 +1,81 @@
+{% extends "nauli/base.html" %} 
+{% load static %} 
+{% load humanize %} 
+{% block title %}Nauli za mikoani{% endblock %} 
+{% block content %}
+<div class="search-container">
+    <h3>Ingiza taarifa za safari yako</h3>
+    <div class="search-form">
+        <form action="{% url 'Nauli:searchFare' %}" method="get">
+            <input
+                type="text"
+                name="first_region"
+                placeholder="Enter first region"
+                required
+            />
+            <input
+                type="text"
+                name="second_region"
+                placeholder="Enter second region"
+                required
+            />
+            <input type="submit" value="Search" />
+        </form>
+    </div>
+</div>
+<div class="results-container">
+    <h1>Matokeo ya utafutaji</h1>
+    {% if results %} {% for result in results %} {% if direct_order %}
+    <h3>
+        {{ result.route.dist_from }} - {{ result.route.dist_to }} ,
+        {{result.route.distance}}km
+    </h3>
+    {% else %}
+    <h3>
+        {{ result.route.dist_to }} - {{ result.route.dist_from }} ,
+        {{result.route.distance}}km
+    </h3>
+    {% endif %}
+    <div class="result-item">
+        <div class="tarifa-wraper">
+            <div>
+                <h3>{{ result.bus.bus_name }}</h3>
+                <h4>Aina ya Basi: {{ result.bus.bus_class }}</h4>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Kuondoka</th>
+                            <th>Kufika</th>
+                            <th>Nauli</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ result.departure_time|date:"H:i" }}</td>
+                            <td>{{ result.arrival_time|date:"H:i" }}</td>
+                            <td>{{ result.price|floatformat|intcomma }}/=</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><strong>Njia(via): </strong>{{result.route.via}}</p>
+                <h3>Vituo vyake:</h3>
+                {% for terminal in result.route.stops.all %}
+                <p>
+                    {{terminal.terminal_name}} -
+                    {{terminal.region.regional_name}}
+                </p>
+                {% endfor %}
+            </div>
+            <div class="picha-wraper">
+                <img src="{{result.bus.image_1}}" alt="picha_1_bus" />
+                <img src="{{result.bus.image_2}}" alt="picha_2_bus" />
+            </div>
+        </div>
+    </div>
+    {% endfor %} {% else %}
+    <p>{{ message }}</p>
+    <h4>Ingiza jina la mkoa unakotoka na kwenda kwa usahihi!.</h4>
+    {% endif %}
+</div>
+{% endblock %}

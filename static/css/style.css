@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.background-section {
+    position: relative;
+    height: 500px; /* Adjust height as needed */
+    background-image: url("https://live.staticflickr.com/7071/27443914306_579a96275f_z.jpg");
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    font-size: 2vw;
+    color: green;
+    text-shadow:
+        -1px -1px 0 hsl(81, 88.5%, 79.6%),
+        1px -1px 0 hsl(81, 88.5%, 79.6%),
+        -1px 1px 0 hsl(81, 88.5%, 79.6%),
+        1px 1px 0 hsl(81, 88.5%, 79.6%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+}
+
+.content-section {
+    padding: 20px;
+}
+
+.search-form {
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+}
+
+.search-form input[type="text"] {
+    width: calc(50% - 10px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.search-form input[type="submit"] {
+    background-color: #4caf50;
+    color: hsl(240, 4.8%, 95.9%);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.search-form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.results-container {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.result-item {
+    border: 2px solid #aaa;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0;
+}
+.search-container h3 {
+    text-align: center;
+}
+
+h1 img{
+  background: #000;
+  width: 40vw;
+  height: 20vw;
+  border-radius: 10px;
+}
+.transparent-img{
+  opacity: 0.7;
+}
+
+.tarifa-wraper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tarifa-wraper > div {
+    flex: 1 1 50%; /* Two column layout */
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.picha-wraper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.picha-wraper img {
+    width: 100%; /* Two images in a row */
+    max-width: 100%; /* Ensure images don't exceed container width */
+}
