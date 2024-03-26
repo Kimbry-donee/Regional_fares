@@ -27,3 +27,4 @@ def searchFare(request):
   }
   return render(request, 'nauli/home.html', context)
 
+

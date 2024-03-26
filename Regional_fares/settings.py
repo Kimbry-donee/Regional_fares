@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'Nauli.apps.NauliConfig',
 ]
+# custom user model
+AUTH_USER_MODEL = 'Nauli.CustomUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -130,3 +132,11 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Custom Authentication Backend
+AUTHENTICATION_BACKENDS = [
+    'Nauli.authentication.EmailAuthBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
