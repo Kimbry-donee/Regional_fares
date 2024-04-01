@@ -1,5 +1,10 @@
 body {
     font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0 auto;
+    margin: 0 auto;
 }
 
 .background-section {
@@ -105,3 +110,48 @@ h1 img{
     width: 100%; /* Two images in a row */
     max-width: 100%; /* Ensure images don't exceed container width */
 }
+
+footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            margin-top: auto; /* Push the footer to the bottom */
+            width: 100%;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+
+        .top-footer {
+            text-align: center;
+        }
+
+        .bottom-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .subscribe-link a {
+          font-size: 1.5rem;
+          color: lightgreen;
+          
+        }
+        .social-icons a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .social-icons i {
+            font-size: 24px;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 20px;
+        }
